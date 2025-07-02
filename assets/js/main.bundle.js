@@ -155,9 +155,9 @@
   }
 
   /** Applies mask on element */
-  function IMask(el, opts) {
+  function IMask$1(el, opts) {
     // currently available only for input-like elements
-    return new IMask.InputMask(el, opts);
+    return new IMask$1.InputMask(el, opts);
   }
 
   // TODO can't use overloads here because of https://github.com/microsoft/TypeScript/issues/50754
@@ -190,21 +190,21 @@
   /** Get Masked class by mask type */
   function maskedClass(mask) /* TODO */{
     if (mask == null) throw new Error('mask property should be defined');
-    if (mask instanceof RegExp) return IMask.MaskedRegExp;
-    if (isString$1(mask)) return IMask.MaskedPattern;
-    if (mask === Date) return IMask.MaskedDate;
-    if (mask === Number) return IMask.MaskedNumber;
-    if (Array.isArray(mask) || mask === Array) return IMask.MaskedDynamic;
-    if (IMask.Masked && mask.prototype instanceof IMask.Masked) return mask;
-    if (IMask.Masked && mask instanceof IMask.Masked) return mask.constructor;
-    if (mask instanceof Function) return IMask.MaskedFunction;
+    if (mask instanceof RegExp) return IMask$1.MaskedRegExp;
+    if (isString$1(mask)) return IMask$1.MaskedPattern;
+    if (mask === Date) return IMask$1.MaskedDate;
+    if (mask === Number) return IMask$1.MaskedNumber;
+    if (Array.isArray(mask) || mask === Array) return IMask$1.MaskedDynamic;
+    if (IMask$1.Masked && mask.prototype instanceof IMask$1.Masked) return mask;
+    if (IMask$1.Masked && mask instanceof IMask$1.Masked) return mask.constructor;
+    if (mask instanceof Function) return IMask$1.MaskedFunction;
     console.warn('Mask not found for mask', mask); // eslint-disable-line no-console
-    return IMask.Masked;
+    return IMask$1.Masked;
   }
   function normalizeOpts(opts) {
     if (!opts) throw new Error('Options in not defined');
-    if (IMask.Masked) {
-      if (opts.prototype instanceof IMask.Masked) return {
+    if (IMask$1.Masked) {
+      if (opts.prototype instanceof IMask$1.Masked) return {
         mask: opts
       };
 
@@ -216,9 +216,9 @@
       const {
         mask = undefined,
         ...instanceOpts
-      } = opts instanceof IMask.Masked ? {
+      } = opts instanceof IMask$1.Masked ? {
         mask: opts
-      } : isObject$1(opts) && opts.mask instanceof IMask.Masked ? opts : {};
+      } : isObject$1(opts) && opts.mask instanceof IMask$1.Masked ? opts : {};
       if (mask) {
         const _mask = mask.mask;
         return {
@@ -264,7 +264,7 @@
 
   /** Creates new {@link Masked} depending on mask type */
   function createMask(opts) {
-    if (IMask.Masked && opts instanceof IMask.Masked) return opts;
+    if (IMask$1.Masked && opts instanceof IMask$1.Masked) return opts;
     const nOpts = normalizeOpts(opts);
     const MaskedClass = maskedClass(nOpts.mask);
     if (!MaskedClass) throw new Error("Masked class is not found for provided mask " + nOpts.mask + ", appropriate module needs to be imported manually before creating mask.");
@@ -275,7 +275,7 @@
     }
     return new MaskedClass(nOpts);
   }
-  IMask.createMask = createMask;
+  IMask$1.createMask = createMask;
 
   /**  Generic element API to use with mask */
   class MaskElement {
@@ -321,7 +321,7 @@
 
     /** */
   }
-  IMask.MaskElement = MaskElement;
+  IMask$1.MaskElement = MaskElement;
 
   const KEY_Z = 90;
   const KEY_Y = 89;
@@ -401,7 +401,7 @@
       this._handlers = {};
     }
   }
-  IMask.HTMLMaskElement = HTMLMaskElement;
+  IMask$1.HTMLMaskElement = HTMLMaskElement;
 
   /** Bridge between InputElement and {@link Masked} */
   class HTMLInputMaskElement extends HTMLMaskElement {
@@ -433,7 +433,7 @@
       this.input.value = value;
     }
   }
-  IMask.HTMLMaskElement = HTMLMaskElement;
+  IMask$1.HTMLMaskElement = HTMLMaskElement;
 
   class HTMLContenteditableMaskElement extends HTMLMaskElement {
     /** Returns HTMLElement selection start */
@@ -482,7 +482,7 @@
       this.input.textContent = value;
     }
   }
-  IMask.HTMLContenteditableMaskElement = HTMLContenteditableMaskElement;
+  IMask$1.HTMLContenteditableMaskElement = HTMLContenteditableMaskElement;
 
   class InputHistory {
     constructor() {
@@ -562,14 +562,14 @@
     }
     set mask(mask) {
       if (this.maskEquals(mask)) return;
-      if (!(mask instanceof IMask.Masked) && this.masked.constructor === maskedClass(mask)) {
+      if (!(mask instanceof IMask$1.Masked) && this.masked.constructor === maskedClass(mask)) {
         // TODO "any" no idea
         this.masked.updateOptions({
           mask
         });
         return;
       }
-      const masked = mask instanceof IMask.Masked ? mask : createMask({
+      const masked = mask instanceof IMask$1.Masked ? mask : createMask({
         mask
       });
       masked.unmaskedValue = this.masked.unmaskedValue;
@@ -856,7 +856,7 @@
       delete this.el;
     }
   }
-  IMask.InputMask = InputMask;
+  IMask$1.InputMask = InputMask;
 
   /** Provides details of changing model value */
   class ChangeDetails {
@@ -900,7 +900,7 @@
       return this.inserted === details.inserted && this.tailShift === details.tailShift && this.rawInserted === details.rawInserted && this.skip === details.skip;
     }
   }
-  IMask.ChangeDetails = ChangeDetails;
+  IMask$1.ChangeDetails = ChangeDetails;
 
   /** Provides details of continuous extracted tail */
   class ContinuousTailDetails {
@@ -1370,7 +1370,7 @@
     skipInvalid: true
   };
   Masked.EMPTY_VALUES = [undefined, null, ''];
-  IMask.Masked = Masked;
+  IMask$1.Masked = Masked;
 
   class ChunksTailDetails {
     /** */
@@ -1426,7 +1426,7 @@
       }
     }
     appendTo(masked) {
-      if (!(masked instanceof IMask.MaskedPattern)) {
+      if (!(masked instanceof IMask$1.MaskedPattern)) {
         const tail = new ContinuousTailDetails(this.toString());
         return tail.appendTo(masked);
       }
@@ -2000,7 +2000,7 @@
       super._update(opts);
     }
   }
-  IMask.MaskedRegExp = MaskedRegExp;
+  IMask$1.MaskedRegExp = MaskedRegExp;
 
   /** Pattern mask */
   class MaskedPattern extends Masked {
@@ -2072,7 +2072,7 @@
               repeat,
               parent: this
             };
-            const maskedBlock = repeat != null ? new IMask.RepeatBlock(blockOpts /* TODO */) : createMask(blockOpts);
+            const maskedBlock = repeat != null ? new IMask$1.RepeatBlock(blockOpts /* TODO */) : createMask(blockOpts);
             if (maskedBlock) {
               this._blocks.push(maskedBlock);
               if (expose) this.exposeBlock = maskedBlock;
@@ -2451,7 +2451,7 @@
   MaskedPattern.ESCAPE_CHAR = '\\';
   MaskedPattern.InputDefinition = PatternInputDefinition;
   MaskedPattern.FixedDefinition = PatternFixedDefinition;
-  IMask.MaskedPattern = MaskedPattern;
+  IMask$1.MaskedPattern = MaskedPattern;
 
   /** Pattern which accepts ranges */
   class MaskedRange extends MaskedPattern {
@@ -2557,7 +2557,7 @@
       return details;
     }
   }
-  IMask.MaskedRange = MaskedRange;
+  IMask$1.MaskedRange = MaskedRange;
 
   const DefaultPattern = 'd{.}`m{.}`Y';
 
@@ -2690,7 +2690,7 @@
       return new Date(year, month - 1, day);
     }
   };
-  IMask.MaskedDate = MaskedDate;
+  IMask$1.MaskedDate = MaskedDate;
 
   /** Dynamic mask for choosing appropriate mask in run-time */
   class MaskedDynamic extends Masked {
@@ -3023,7 +3023,7 @@
       return masked.compiledMasks[inputs[0].index];
     }
   };
-  IMask.MaskedDynamic = MaskedDynamic;
+  IMask$1.MaskedDynamic = MaskedDynamic;
 
   /** Pattern which validates enum values */
   class MaskedEnum extends MaskedPattern {
@@ -3113,7 +3113,7 @@
     ...MaskedPattern.DEFAULTS,
     matchValue: (estr, istr, matchFrom) => estr.indexOf(istr, matchFrom) === matchFrom
   };
-  IMask.MaskedEnum = MaskedEnum;
+  IMask$1.MaskedEnum = MaskedEnum;
 
   /** Masking by custom Function */
   class MaskedFunction extends Masked {
@@ -3137,7 +3137,7 @@
       });
     }
   }
-  IMask.MaskedFunction = MaskedFunction;
+  IMask$1.MaskedFunction = MaskedFunction;
 
   var _MaskedNumber;
   /** Number mask */
@@ -3444,7 +3444,7 @@
       maximumFractionDigits: 20
     })
   };
-  IMask.MaskedNumber = MaskedNumber;
+  IMask$1.MaskedNumber = MaskedNumber;
 
   /** Mask pipe source and destination types */
   const PIPE_TYPE = {
@@ -3471,9 +3471,9 @@
   function pipe(value, mask, from, to) {
     return createPipe(mask, from, to)(value);
   }
-  IMask.PIPE_TYPE = PIPE_TYPE;
-  IMask.createPipe = createPipe;
-  IMask.pipe = pipe;
+  IMask$1.PIPE_TYPE = PIPE_TYPE;
+  IMask$1.createPipe = createPipe;
+  IMask$1.pipe = pipe;
 
   /** Pattern mask */
   class RepeatBlock extends MaskedPattern {
@@ -3596,36 +3596,23 @@
       super.state = state;
     }
   }
-  IMask.RepeatBlock = RepeatBlock;
+  IMask$1.RepeatBlock = RepeatBlock;
 
   try {
-    globalThis.IMask = IMask;
+    globalThis.IMask = IMask$1;
   } catch {}
 
   document.addEventListener('DOMContentLoaded', function () {
-      IMask(
+      IMask$1(
           document.querySelector('.input_tel'), {
           mask: '+7 (000) 000-00-00',
           lazy: false,
       }
       );
-      IMask(document.querySelector('.input_email'), {
-          mask: /^([a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]{0,64}(@)?([a-zA-Z0-9-]{0,255}(\.[a-zA-Z0-9-]{0,63})?)?)?$/
-      });
-
-      function checkValidityName(name) {
-          const regexName = /^[a-zA-Zа-яА-ЯёЁ\-'\s]{2,64}$/;
-          return regexName.test(name);
-      }
 
       function checkValidityPhone(tel) {
           const regexTel = /^\+\d \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
           return regexTel.test(tel);
-      }
-
-      function checkValidityEmail(email) {
-          const regexEmail = /^(?:(?:\r\n)?[ \t])*(?:(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*)|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*:(?:(?:\r\n)?[ \t])*(?:(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*)(?:,\s*(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*))*)?;\s*)$/;
-          return regexEmail.test(email);
       }
 
       function checkValidityCheckbox(checkbox) {
@@ -3663,50 +3650,52 @@
       }
 
       function checkInputValidity(name, tel, email, consent, promo) {
-          const validityName = validateInputField(name, checkValidityName);
+          // const validityName = validateInputField(name, checkValidityName);
           const validityTel = validateInputField(tel, checkValidityPhone);
-          const validityEmail = validateInputField(email, checkValidityEmail);
+          // const validityEmail = validateInputField(email, checkValidityEmail);
           const validityConsent = validateCheckbox(consent);
-          const validityPromo = validateCheckbox(promo);
-          return validityName && validityTel && validityEmail && validityConsent && validityPromo;
+          // const validityPromo = validateCheckbox(promo);
+          // return validityName && validityTel && validityEmail && validityConsent && validityPromo;
+          return validityTel && validityConsent;
       }
 
       document.querySelectorAll('form').forEach(function (form) {
-          form.setAttribute('data-first-submit', 'true');
+          // form.setAttribute('data-first-submit', 'true');
           const buttonSubmit = form.querySelector('button[type="submit"]');
-          const inputName = form.querySelector('.input_name');
+          // const inputName = form.querySelector('.input_name');
           const inputTel = form.querySelector('.input_tel');
-          const inputEmail = form.querySelector('.input_email');
+          // const inputEmail = form.querySelector('.input_email');
           const inputConsent = form.querySelector('.input_consent');
-          const inputPromo = form.querySelector('.input_promo');
+          // const inputPromo = form.querySelector('.input_promo');
 
           const validityState = {
-              name: checkValidityName(inputName ? inputName.value.trim() : ''),
+              // name: checkValidityName(inputName ? inputName.value.trim() : ''),
               tel: checkValidityPhone(inputTel ? inputTel.value.trim() : ''),
-              email: checkValidityEmail(inputEmail ? inputEmail.value.trim() : ''),
+              // email: checkValidityEmail(inputEmail ? inputEmail.value.trim() : ''),
               consent: checkValidityCheckbox(inputConsent),
-              promo: checkValidityCheckbox(inputPromo)
+              // promo: checkValidityCheckbox(inputPromo)
           };
 
           function updateSubmitButton() {
-              let isFirstSubmit = form.getAttribute('data-first-submit') === 'true';
+              // let isFirstSubmit = form.getAttribute('data-first-submit') === 'true';
               let allValid = Object.values(validityState).every(function (value) { return value; });
-              if (isFirstSubmit) {
-                  buttonSubmit.disabled = false;
-              } else {
+              // if (isFirstSubmit) {
                   buttonSubmit.disabled = !allValid;
-              }
+              // } else {
+                  // buttonSubmit.disabled = !allValid;
+              // }
           }
 
           updateSubmitButton();
 
           form.addEventListener('submit', function (event) {
               event.preventDefault();
-              form.setAttribute('data-first-submit', 'false');
-              buttonSubmit.disabled = true;
+              // alert('yep');
+              // form.setAttribute('data-first-submit', 'false');
+              // buttonSubmit.disabled = true;
               if (!checkInputValidity(inputName, inputTel, inputEmail, inputConsent, inputPromo)) {
                   console.debug('Fields validation failed');
-                  buttonSubmit.disabled = false;
+                  // buttonSubmit.disabled = false;
                   return;
               }
               const formData = new FormData(form);
@@ -3733,14 +3722,14 @@
               updateSubmitButton();
           }
 
-          if (inputName) {
-              inputName.addEventListener('input', function (event) {
-                  onInputChange(event, 'name', checkValidityName);
-              });
-              inputName.addEventListener('change', function (event) {
-                  onInputChange(event, 'name', checkValidityName);
-              });
-          }
+          // if (inputName) {
+          //     inputName.addEventListener('input', function (event) {
+          //         onInputChange(event, 'name', checkValidityName);
+          //     });
+          //     inputName.addEventListener('change', function (event) {
+          //         onInputChange(event, 'name', checkValidityName);
+          //     });
+          // }
           if (inputTel) {
               inputTel.addEventListener('input', function (event) {
                   onInputChange(event, 'tel', checkValidityPhone);
@@ -3749,14 +3738,14 @@
                   onInputChange(event, 'tel', checkValidityPhone);
               });
           }
-          if (inputEmail) {
-              inputEmail.addEventListener('input', function (event) {
-                  onInputChange(event, 'email', checkValidityEmail);
-              });
-              inputEmail.addEventListener('change', function (event) {
-                  onInputChange(event, 'email', checkValidityEmail);
-              });
-          }
+          // if (inputEmail) {
+          //     inputEmail.addEventListener('input', function (event) {
+          //         onInputChange(event, 'email', checkValidityEmail);
+          //     });
+          //     inputEmail.addEventListener('change', function (event) {
+          //         onInputChange(event, 'email', checkValidityEmail);
+          //     });
+          // }
           if (inputConsent) {
               inputConsent.addEventListener('input', function (event) {
                   onInputChange(event, 'consent');
@@ -3765,14 +3754,14 @@
                   onInputChange(event, 'consent');
               });
           }
-          if (inputPromo) {
-              inputPromo.addEventListener('input', function (event) {
-                  onInputChange(event, 'promo');
-              });
-              inputPromo.addEventListener('change', function (event) {
-                  onInputChange(event, 'promo');
-              });
-          }
+          // if (inputPromo) {
+          //     inputPromo.addEventListener('input', function (event) {
+          //         onInputChange(event, 'promo');
+          //     });
+          //     inputPromo.addEventListener('change', function (event) {
+          //         onInputChange(event, 'promo');
+          //     });
+          // }
       });
   });
 
@@ -6935,42 +6924,52 @@
           splide.go('>');
       });
   }
-
-  // document.addEventListener('DOMContentLoaded', function(){
   Oe.bind('[data-fancybox]', {
       dragToClose: false,
       closeButton: false,
       autoFocus: false,
-      // defaultType: 'inline',
-      // hideScrollbar: false
+      on: {
+          "Carousel.ready Carousel.change": function () {
+              const that = Oe.getSlide().el;
+              IMask(that.querySelector('.input_tel:not([data-masked])'), {
+                  mask: '+7 (000) 000-00-00',
+                  lazy: false,
+              });
+          }
+      }
   });
-  new Splide('.header-frame__core-slider-root', {
+
+  const sliderHero = new Splide('.header-frame__core-slider-root', {
       type: "fade",
       heightRatio: 0.675,
       pagination: false,
       arrows: false,
-  }).mount();
-  // const sliderHeroPrev = document.querySelector('.');
-  // const sliderHeroNext = document.querySelector('.');
-  // sliderHeroPrev.addEventListener('click', function(){
-  //     sliderHero.go('<');
-  // });
-  // sliderHeroNext.addEventListener('click', function(){
-  //     sliderHero.go('>');
-  // });
+  });
+  const allCaptionsHero = document.querySelectorAll('.header-frame__navigation-list-item');
+  sliderHero.on('ready', () => {
+      allCaptionsHero[sliderHero.index].classList.add('active');
+  });
+  sliderHero.on('move', (newIndex, prevIndex) => {
+      allCaptionsHero[prevIndex].classList.remove('active');
+      allCaptionsHero[newIndex].classList.add('active');
+  });
+  sliderHero.mount();
+  const sliderHeroPrev = document.querySelector('.header-frame__navigation-arrow_prev');
+  const sliderHeroNext = document.querySelector('.header-frame__navigation-arrow_next');
+  splideArrows(sliderHero, sliderHeroPrev, sliderHeroNext);
 
   const sliderIntroMain = new Splide('.intro-slider__main', {
       type: 'fade',
-      width: '40.625vw',
-      height: '37.5vw',
+      // width: '40.625vw',
+      // height: '37.5vw',
       arrows: false,
       pagination: false,
-      breakpoints: {
-          600: {
-              width: '75vw',
-              height: '69.792vw',
-          }
-      }
+      // breakpoints: {
+      //     600: {
+      //         width: '75vw',
+      //         height: '69.792vw',
+      //     }
+      // }
   });
   const sliderIntroNav = new Splide('.intro-slider__nav', {
       pagination: false,
@@ -7027,28 +7026,27 @@
               pagination.addEventListener('mouseenter', event => {
                   const li = event.target.closest('li');
                   if (li && pagination.contains(li)) {
-                      const button = li.querySelector('button');
-                      if (button) {
-                          button.click();
+                      const index = [...pagination.children].indexOf(li);
+                      if (index >= 0) {
+                          placesSlider.go(index);
                       }
                   }
               }, true);
+              pagination.addEventListener('touchmove', event => {
+                  const touch = event.touches[0];
+                  const el = document.elementFromPoint(touch.clientX, touch.clientY);
+                  const li = el?.closest('li');
+
+                  if (li && pagination.contains(li)) {
+                      const index = [...pagination.children].indexOf(li);
+                      if (index >= 0 && index !== placesSlider.index) {
+                          placesSlider.go(index);
+                      }
+                  }
+              }, { passive: true });
           }
       });
       placesSlider.mount();
-  });
-
-  document.querySelectorAll('.places-place__slider').forEach(slider => {
-      const pagination = slider.querySelector('.splide__pagination');
-      if (pagination) {
-          pagination.addEventListener('mouseenter', e => {
-              const li = e.target.closest('li');
-              if (li && pagination.contains(li)) {
-                  const btn = li.querySelector('button');
-                  if (btn) btn.click();
-              }
-          }, true);
-      }
   });
 
   const modalSliders = document.querySelectorAll('.modal-place__slider');
@@ -7063,88 +7061,281 @@
       }).mount();
   });
 
-  const section = document.querySelector('.cta_photographer .cta-inner');
-  const photos = [...document.querySelectorAll('.cta-images__photo')];
 
-  let scrollY = window.scrollY;
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
+  function animationPhotographs() {
+      const section = document.querySelector('.cta_photographer .cta-inner');
+      const photos = [...document.querySelectorAll('.cta-images__photo')];
 
-  window.addEventListener('scroll', () => {
-      scrollY = window.scrollY;
-  });
+      let scrollY = window.scrollY;
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
 
-  section.addEventListener('mousemove', e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-  });
-  section.addEventListener('touchmove', e => {
-      if (e.touches && e.touches.length > 0) {
-          mouseX = e.touches[0].clientX;
-          mouseY = e.touches[0].clientY;
-      }
-  }, { passive: true });
-  section.addEventListener('touchstart', e => {
-      const touch = e.touches[0];
-      if (!touch) return;
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      const offsetX = (touch.clientX - centerX) * 0.03;
-      const offsetY = (touch.clientY - centerY) * 0.04;
-      photos.forEach(photo => {
-          photo.style.transform = `translateX(${offsetX}px) translateY(${offsetY}px) translateZ(0)`;
+      window.addEventListener('scroll', () => {
+          scrollY = window.scrollY;
       });
-  });
 
-  // Intersection-based reveal
-  const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              photos.forEach(photo => {
-                  photo.classList.add('active');
-                  photo.addEventListener('transitionend', (e) => {
-                      if (e.propertyName === 'top' || e.propertyName === 'right' || e.propertyName === 'bottom' || e.propertyName === 'left') {
-                          photo.style.transitionProperty = 'transform';
-                          photo.classList.add('appearance-complete');
-                      }
-                  });
-              });
-              observer.unobserve(entry.target);
+      section.addEventListener('mousemove', e => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+      });
+      section.addEventListener('touchmove', e => {
+          if (e.touches && e.touches.length > 0) {
+              mouseX = e.touches[0].clientX;
+              mouseY = e.touches[0].clientY;
           }
+      }, { passive: true });
+      section.addEventListener('touchstart', e => {
+          const touch = e.touches[0];
+          if (!touch) return;
+          const centerX = window.innerWidth / 2;
+          const centerY = window.innerHeight / 2;
+          const offsetX = (touch.clientX - centerX) * 0.03;
+          const offsetY = (touch.clientY - centerY) * 0.04;
+          photos.forEach(photo => {
+              photo.style.transform = `translateX(${offsetX}px) translateY(${offsetY}px) translateZ(0)`;
+          });
       });
-  }, { threshold: 0.3 });
 
-  observer.observe(section);
+      // Intersection-based reveal
+      const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  photos.forEach(photo => {
+                      photo.classList.add('active');
+                      photo.addEventListener('transitionend', (e) => {
+                          if (e.propertyName === 'top' || e.propertyName === 'right' || e.propertyName === 'bottom' || e.propertyName === 'left') {
+                              photo.style.transitionProperty = 'transform';
+                              photo.classList.add('appearance-complete');
+                          }
+                      });
+                  });
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, { threshold: 0.3 });
 
-  // Main loop
-  const update = () => {
-      const rect = section.getBoundingClientRect();
-      const sectionTop = rect.top + window.scrollY;
-      const sectionHeight = rect.height;
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
+      observer.observe(section);
 
-      const inView = scrollY + window.innerHeight > sectionTop && scrollY < sectionTop + sectionHeight;
-      if (!inView) {
+      // Main loop
+      const update = () => {
+          const rect = section.getBoundingClientRect();
+          const sectionTop = rect.top + window.scrollY;
+          const sectionHeight = rect.height;
+          const centerX = window.innerWidth / 2;
+          const centerY = window.innerHeight / 2;
+
+          const inView = scrollY + window.innerHeight > sectionTop && scrollY < sectionTop + sectionHeight;
+          if (!inView) {
+              requestAnimationFrame(update);
+              return;
+          }
+
+          const scrollProgress = (scrollY + window.innerHeight - sectionTop) / (sectionHeight + window.innerHeight);
+          const scrollOffsetY = (scrollProgress - 1) * 40;
+          const cursorOffsetX = (mouseX - centerX) * 0.03;
+          const cursorOffsetY = (mouseY - centerY) * 0.04;
+
+          photos.forEach(photo => {
+              const translateX = cursorOffsetX;
+              const translateY = scrollOffsetY + cursorOffsetY;
+              photo.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(0)`;
+          });
+
           requestAnimationFrame(update);
-          return;
-      }
-
-      const scrollProgress = (scrollY + window.innerHeight - sectionTop) / (sectionHeight + window.innerHeight);
-      const scrollOffsetY = (scrollProgress - 1) * 40;
-      const cursorOffsetX = (mouseX - centerX) * 0.03;
-      const cursorOffsetY = (mouseY - centerY) * 0.04;
-
-      photos.forEach(photo => {
-          const translateX = cursorOffsetX;
-          const translateY = scrollOffsetY + cursorOffsetY;
-          photo.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(0)`;
-      });
+      };
 
       requestAnimationFrame(update);
-  };
+  }
+  animationPhotographs();
 
-  requestAnimationFrame(update);
+  function animationRotation_intro() {
+      const rotatorLeft = document.querySelector('.intro-text__descr-decoration_left');
+      const rotatorRight = document.querySelector('.intro-text__descr-decoration_right');
+      const rotatorParent = document.querySelector('.intro-text__descr');
+
+      const rotateOnScroll = () => {
+          const scrollY = window.scrollY / 10;
+          rotatorLeft.style.transform = `rotate(-${scrollY}deg)`;
+          rotatorRight.style.transform = `rotate(${scrollY}deg)`;
+      };
+
+      const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+              window.addEventListener('scroll', rotateOnScroll, { passive: true });
+              rotateOnScroll();
+          } else {
+              window.removeEventListener('scroll', rotateOnScroll);
+          }
+      }, { threshold: 0 });
+
+      observer.observe(rotatorParent);
+  }
+  animationRotation_intro();
+
+  function animationRotation_cards() {
+      const rotatorMiddle = document.querySelector('.cards-decoration_middle');
+      const rotatorBottom = document.querySelector('.cards-decoration_bottom');
+      const rotatorParent = document.querySelector('.cards_0');
+
+      const rotateOnScroll = () => {
+          const scrollY = window.scrollY / 20;
+          rotatorMiddle.style.transform = `rotate(-${scrollY}deg)`;
+          rotatorBottom.style.transform = `rotate(${scrollY}deg)`;
+      };
+
+      const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+              window.addEventListener('scroll', rotateOnScroll, { passive: true });
+              rotateOnScroll();
+          } else {
+              window.removeEventListener('scroll', rotateOnScroll);
+          }
+      }, { threshold: 0 });
+
+      observer.observe(rotatorParent);
+  }
+  animationRotation_cards();
+
+  function gal_appearance() {
+      const parent = document.querySelector('.cards_0');
+      const target = document.querySelector('.cards-observer-trigger');
+      if (!parent || !target) {
+          return
+      }
+      const observer = new IntersectionObserver(([entry], observer) => {
+          if (entry.isIntersecting) {
+              parent.classList.add('active');
+              observer.unobserve(entry.target);
+          }
+      }, { threshold: 1 });
+      observer.observe(target);
+  }
+  gal_appearance();
+
+  function another_gal_appearance() {
+      const parent = document.querySelector('.contacts__content');
+      const target = document.querySelector('.contacts__content');
+      if (!parent || !target) {
+          return
+      }
+      const observer = new IntersectionObserver(([entry], observer) => {
+          if (entry.isIntersecting) {
+              parent.classList.add('active');
+              observer.unobserve(entry.target);
+          }
+      }, { threshold: 1 });
+      observer.observe(target);
+  }
+  another_gal_appearance();
+
+  function setupShakeOnTrigger() {
+      const trigger = document.querySelector('.cards_2 .cards-observer-trigger');
+      const target = document.querySelector('.cards-decoration_salt');
+      if (!trigger || !target) {
+          return;
+      }
+      const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+              target.classList.add('shake');
+          } else {
+              target.classList.remove('shake');
+          }
+      }, { threshold: 1 });
+      observer.observe(trigger);
+  }
+  setupShakeOnTrigger();
+
+  function setupHorizontalScroll() {
+      const el = document.querySelector('.places-heading__image_couple');
+      if (!el) return;
+      let start = null;
+      let end = null;
+      // Update start/end boundaries of the element in viewport Y coordinates
+      function updateBounds() {
+          const rect = el.getBoundingClientRect();
+          const scrollY = window.scrollY;
+          start = scrollY + rect.top;      // element top from document top
+          end = start + rect.height + window.innerHeight; // enough scroll range for animation
+      }
+      // Calculate translateX based on progress 0..1
+      function onScroll() {
+          if (start === null || end === null) return;
+          const scrollY = window.scrollY + window.innerHeight; // bottom of viewport
+          const progress = Math.min(Math.max((scrollY - start) / (end - start), 0), 1);
+          // Map progress 0..1 to 150% .. -150%
+          const translatePercent = 150 - progress * 300;
+          el.style.transform = `translateX(${translatePercent}%)`;
+      }
+      // Init
+      updateBounds();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', () => {
+          updateBounds();
+          onScroll();
+      });
+      onScroll();
+  }
+  setupHorizontalScroll();
+
+
+  const section = document.querySelector('.seo-inner');
+  const box = document.querySelector('.seo__image');
+
+  let sectionTop = 0;
+  let sectionHeight = 0;
+  let boxHeight = 0;
+
+  function updateMetrics() {
+      const rect = section.getBoundingClientRect();
+      sectionTop = window.scrollY + rect.top;
+      sectionHeight = section.offsetHeight;
+      boxHeight = box.offsetHeight;
+  }
+
+  function updatePosition() {
+      const scrollY = window.scrollY;
+      const maxTranslate = sectionHeight - boxHeight;
+      let offset = scrollY - sectionTop;
+
+      if (offset < 0) offset = 0;
+      if (offset > maxTranslate) offset = maxTranslate;
+
+      box.style.transform = `translateY(${offset}px)`;
+  }
+
+  function initStickyScroll() {
+      updateMetrics();
+      updatePosition();
+  }
+
+  window.addEventListener('scroll', updatePosition, { passive: true });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+          updateMetrics();
+          updatePosition();
+      }, 150);
+  }, { passive: true });
+
+  window.addEventListener('DOMContentLoaded', initStickyScroll);
+
+
+  const btnFreedom = document.getElementById('switch_to_freedom');
+  const btnForest = document.getElementById('switch_to_forest');
+  const mapFreedom = document.getElementById('map_freedom');
+  const mapForest = document.getElementById('map_forest');
+
+  function switchMap(showFreedom) {
+      mapFreedom.classList.toggle('active', showFreedom);
+      mapForest.classList.toggle('active', !showFreedom);
+      btnFreedom.classList.toggle('active', showFreedom);
+      btnForest.classList.toggle('active', !showFreedom);
+  }
+
+  btnFreedom.addEventListener('click', () => switchMap(true));
+  btnForest.addEventListener('click', () => switchMap(false));
 
 })();
 //# sourceMappingURL=main.bundle.js.map

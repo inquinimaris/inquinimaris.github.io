@@ -17,18 +17,18 @@
   <div class="container --wider">
     <div class="header-inner">
       <div class="header-bar">
-        <div class="logo header-logo"><a class="header-logo__link" href="/" title="ЛюбаПетя"><img src="./assets/img/logo-white.svg" alt="Логотип ЛюбаПетя"></a><span class="header-logo__text">Cеть Loft’ов <br> в&nbsp;Челябинске</span></div>
+        <div class="logo header-logo"><a class="logo__link header-logo__link" href="/" title="ЛюбаПетя"><img src="./assets/img/logo-white.svg" alt="Логотип ЛюбаПетя"></a><span class="logo__text header-logo__text">Cеть Loft’ов <br> в&nbsp;Челябинске</span></div>
         <div class="header-contacts"><a class="header-tel" href="tel:+79954693037">+7 (995) 469-30-37</a>
           <button class="button button_header header-button" data-fancybox data-src="#modal_contacts">Связаться</button>
         </div>
       </div>
       <div class="header-main">
         <div class="header-text">
-          <button class="header-text__video" data-fancybox><img src="./assets/img/hero/hero-video.webp" alt="Видео"><span>Посмотрите видео <br> экскурсию в&nbsp;loft</span></button>
+          <button class="header-text__video" data-fancybox data-src="#modal_video"><img src="./assets/img/hero/hero-video.webp" alt="Видео"><span>Посмотрите видео <br> экскурсию в&nbsp;loft</span></button>
           <h1 class="header-text__title">Аренда лофта под&nbsp;мероприятия в&nbsp;Челябинске</h1>
           <h2 class="header-text__subtitle"> 
             <svg> 
-              <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-layout"></use>
+              <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-layout" fill="#fff"></use>
             </svg><span><em>5 уникальных</em> арт-площадок в аренду</span>
           </h2>
           <button class="header-text__button button button_primary" data-fancybox data-src="#modal_overview">Подобрать площадку</button>
@@ -39,7 +39,7 @@
           </div>
           <div class="header-frame__core">
             <div class="header-frame__core-slider"><img class="header-frame__core-slider-frame" src="./assets/img/hero/frame-core.webp" alt="#">
-              <div class="header-frame__core-slider-root splide">
+              <div class="header-frame__core-slider-root splide fade">
                 <div class="splide__track">
                   <ul class="splide__list header-frame__core-slider__list">
                     <li class="splide__slide header-frame__core-slide">
@@ -63,6 +63,26 @@
             </div>
           </div>
           <div class="header-frame__bottom">
+            <div class="header-frame__navigation">
+              <button class="header-frame__navigation-arrow header-frame__navigation-arrow_prev" type="button">
+                <svg class="header-frame__navigation-arrow-icon">
+                  <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-hero-arrow-prev"></use>
+                </svg>
+              </button>
+              <ul class="header-frame__navigation-list">
+                <li class="header-frame__navigation-list-item"><a class="header-frame__navigation-list-link" href="#forest">Пространство для работы и отдыха</a></li>
+                <li class="header-frame__navigation-list-item"><a class="header-frame__navigation-list-link" href="#forest">Мероприятия с особенной атмосферой</a></li>
+                <li class="header-frame__navigation-list-item"><a class="header-frame__navigation-list-link" href="#freedom">Концептуальные выставки</a></li>
+                <li class="header-frame__navigation-list-item"><a class="header-frame__navigation-list-link" href="#forest">Презентация журнала BLUR</a></li>
+                <li class="header-frame__navigation-list-item"><a class="header-frame__navigation-list-link" href="#forest">Особенные подарки</a></li>
+                <li class="header-frame__navigation-list-item"><a class="header-frame__navigation-list-link" href="#freedom">Свадебные фотосессии</a></li>
+              </ul>
+              <button class="header-frame__navigation-arrow header-frame__navigation-arrow_next" type="button">
+                <svg class="header-frame__navigation-arrow-icon">
+                  <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-hero-arrow-next"></use>
+                </svg>
+              </button>
+            </div>
             <div class="image contain"><img class="lazyload" src="./assets/img/hero/frame-bottom.webp" alt="#"></div>
           </div>
         </div>
@@ -74,10 +94,11 @@
 <main class="main">
   <section class="section intro">
     <div class="container">
+      <h2 class="intro-text__title --only-mobile" aria="hidden"><b>LOFT -</b> пространство под ваши мероприятия</h2>
       <div class="section-inner intro-inner">
         <div class="intro-slider">
           <div class="intro-slider__main-wrapper">
-            <div class="intro-slider__main splide">
+            <div class="intro-slider__main splide fade">
               <div class="splide__track"> 
                 <ul class="splide__list">
                   <li class="splide__slide">
@@ -166,7 +187,7 @@
           </div>
         </div>
         <div class="intro-text">
-          <h2 class="intro-text__title"><b>LOFT -</b> пространство под ваши мероприятия</h2>
+          <h2 class="intro-text__title --only-desktop"><b>LOFT -</b> пространство под ваши мероприятия</h2>
           <ul class="intro-text__tags">
             <li class="intro-text__tags-item">Вечеринка</li>
             <li class="intro-text__tags-item">Свадьба</li>
@@ -179,7 +200,10 @@
             <li class="intro-text__tags-item">Девичник</li>
             <li class="intro-text__tags-item">Мальчишник</li>
           </ul>
-          <div class="intro-text__descr"><span class="intro-text__descr-image image contain" aria-label="Арт-оранжерея ЛюбаПетя"> <img class="lazyload --only-desktop" src="./assets/img/logo-green.svg" alt="Логотип ЛюбаПетя"><img class="lazyload --only-mobile" src="./assets/img/logo-green-wide.svg" alt="Логотип ЛюбаПетя" aria="hidden"></span><span class="intro-text__descr-middle">это</span><span class="intro-text__descr-text">Зелёная оранжерея, наполненная антикварными предметами и&nbsp;произведениями искусства</span></div>
+          <div class="intro-text__descr"><span class="intro-text__descr-image image contain" aria-label="Арт-оранжерея ЛюбаПетя"> <img class="lazyload --only-desktop" src="./assets/img/logo-green.svg" alt="Логотип ЛюбаПетя"><img class="lazyload --only-mobile" src="./assets/img/logo-green-wide.svg" alt="Логотип ЛюбаПетя" aria="hidden"></span><span class="intro-text__descr-middle">это</span><span class="intro-text__descr-text">Зелёная оранжерея, наполненная антикварными предметами и&nbsp;произведениями искусства</span>
+            <div class="intro-text__descr-decoration intro-text__descr-decoration_left"></div>
+            <div class="intro-text__descr-decoration intro-text__descr-decoration_right"></div>
+          </div>
           <ul class="intro-text__features">
             <li class="intro-text__features-item">
               <svg class="intro-text__features-item-icon">
@@ -207,7 +231,7 @@
           <h2 class="places-heading__title section-title">Наши помещения</h2>
           <div class="places-heading__image"><img class="places-heading__image_couple" src="./assets/img/places-svg-couple.svg" alt="#"><img class="places-heading__image_landscape" src="./assets/img/places-svg-landscape.svg" alt="#"></div>
         </div>
-        <div class="places-place">
+        <div class="places-place" id="freedom">
           <div class="places-place__heading">
             <div class="places-place__heading-text">
               <h3 class="places-place__heading-address">
@@ -216,11 +240,11 @@
                 </svg><span class="places-place__heading-address-text">адрес: ул. Свободы, 2к5</span>
               </h3>
               <p class="places-place__heading-descr">Двухуровневый лофт с уникальной концепцией на первом этаже оранжерея и&nbsp;стеклянная комната. На втором этаже лаунж зона с проектором и столом для&nbsp;покера. Возможна аренда раздельная либо&nbsp;всего пространства</p>
-            </div><a class="places-place__heading-link button button_primary --only-desktop" href="#" target="_blank">построить маршрут</a>
+            </div><a class="places-place__heading-link button button_primary --only-desktop" href="https://yandex.com/maps/-/CHsmBB0r" target="_blank">построить маршрут</a>
           </div>
           <div class="places-place__sliders places-place__sliders_two">
             <div class="places-place__slider-wrapper places-place__slider-wrapper_two">
-              <div class="places-place__slider splide places-place__slider_0">
+              <div class="places-place__slider splide fade places-place__slider_0" data-fancybox data-src="#modal_first_floor">
                 <div class="splide__track">
                   <ul class="splide__list">
                     <li class="places-place__slide splide__slide">
@@ -244,7 +268,7 @@
               </div>
             </div>
             <div class="places-place__slider-wrapper places-place__slider-wrapper_two">
-              <div class="places-place__slider splide places-place__slider_1">
+              <div class="places-place__slider splide fade places-place__slider_1" data-fancybox data-src="#modal_second_floor">
                 <div class="splide__track">
                   <ul class="splide__list">
                     <li class="places-place__slide splide__slide">
@@ -273,9 +297,9 @@
                 </div>
               </div>
             </div>
-          </div><a class="places-place__heading-link button button_primary --only-mobile" href="#" target="_blank">построить маршрут</a>
+          </div><a class="places-place__heading-link button button_primary --only-mobile" href="https://yandex.com/maps/-/CHsmBB0r" target="_blank">построить маршрут</a>
         </div>
-        <div class="places-place">
+        <div class="places-place" id="forest">
           <div class="places-place__heading">
             <div class="places-place__heading-text">
               <h3 class="places-place__heading-address">
@@ -284,11 +308,11 @@
                 </svg><span class="places-place__heading-address-text">адрес: ул. Лесопарковая, 2</span>
               </h3>
               <p class="places-place__heading-descr">Четыре зала с уникальной концепцией и бар с&nbsp;разнообразным меню под&nbsp;ваше масштабное событие. Возможна аренда по&nbsp;несколько залов, либо всего пространства</p>
-            </div><a class="places-place__heading-link button button_primary --only-desktop" href="#" target="_blank">построить маршрут</a>
+            </div><a class="places-place__heading-link button button_primary --only-desktop" href="https://yandex.com/maps/-/CHsmFZLZ" target="_blank">построить маршрут</a>
           </div>
           <div class="places-place__sliders places-place__sliders_four">
             <div class="places-place__slider-wrapper places-place__slider-wrapper_four">
-              <div class="places-place__slider splide places-place__slider_2">
+              <div class="places-place__slider splide fade places-place__slider_2" data-fancybox data-src="#modal_greenhouse">
                 <div class="splide__track">
                   <ul class="splide__list">
                     <li class="places-place__slide splide__slide">
@@ -312,7 +336,7 @@
               </div>
             </div>
             <div class="places-place__slider-wrapper places-place__slider-wrapper_four">
-              <div class="places-place__slider splide places-place__slider_3">
+              <div class="places-place__slider splide fade places-place__slider_3" data-fancybox data-src="#modal_gallery">
                 <div class="splide__track">
                   <ul class="splide__list">
                     <li class="places-place__slide splide__slide">
@@ -333,7 +357,7 @@
               </div>
             </div>
             <div class="places-place__slider-wrapper places-place__slider-wrapper_four">
-              <div class="places-place__slider splide places-place__slider_4">
+              <div class="places-place__slider splide fade places-place__slider_4" data-fancybox data-src="#modal_lounge">
                 <div class="splide__track">
                   <ul class="splide__list">
                     <li class="places-place__slide splide__slide">
@@ -357,7 +381,7 @@
               </div>
             </div>
             <div class="places-place__slider-wrapper places-place__slider-wrapper_four">
-              <div class="places-place__slider splide places-place__slider_5">
+              <div class="places-place__slider splide fade places-place__slider_5" data-fancybox data-src="#modal_auditorium">
                 <div class="splide__track">
                   <ul class="splide__list">
                     <li class="places-place__slide splide__slide">
@@ -383,45 +407,48 @@
                 </div>
               </div>
             </div>
-          </div><a class="places-place__heading-link button button_primary --only-mobile" href="#" target="_blank">построить маршрут</a>
+          </div><a class="places-place__heading-link button button_primary --only-mobile" href="https://yandex.com/maps/-/CHsmFZLZ" target="_blank">построить маршрут</a>
         </div>
       </div>
     </div>
   </section>
   <section class="section cards cards_0">
+    <div class="cards-decoration cards-decoration_middle"></div>
+    <div class="cards-decoration cards-decoration_bottom"></div>
+    <div class="cards-observer-trigger"></div>
     <div class="container">
       <h2 class="section-title">ЛюбаПетя - это</h2>
       <div class="cards-inner">
         <ul class="cards-items">
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/0/0.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Уникальная концепция</p>
-            <p class="cards-items__item-descr">Уютный интерьер с вечнозелеными растениями, антиквариатом и предметами искусства</p>
+            <p class="cards-items__item-descr">Уютный интерьер с вечнозелеными растениями, антиквариатом и предметами&nbsp;искусства</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/0/1.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Фотогеничный дизайн</p>
-            <p class="cards-items__item-descr">Красивые локации для фотографий, которые позволят запечатлеть незабываемые моменты</p>
+            <p class="cards-items__item-descr">Красивые локации для фотографий, которые&nbsp;позволят запечатлеть незабываемые&nbsp;моменты</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/0/2.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Находимся в центре города</p>
             <p class="cards-items__item-descr">Удобное месторасположение делает пространство доступным для всех участников</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/0/3.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Функциональное пространство</p>
-            <p class="cards-items__item-descr">Залы могут быть адаптированы под различные форматы мероприятий — от деловых встреч до творческих мастер-классов</p>
+            <p class="cards-items__item-descr">Залы могут быть адаптированы под различные форматы мероприятий —&nbsp;от&nbsp;деловых встреч до творческих мастер&#8209;классов</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/0/4.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Команда профессионалов</p>
-            <p class="cards-items__item-descr">Профессиональная поддержкав организации мероприятия, что позволяет сосредоточиться на содержании и участниках</p>
+            <p class="cards-items__item-descr">Профессиональная поддержкав организации мероприятия, что позволяет&nbsp;сосредоточиться на содержании&nbsp;и&nbsp;участниках</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/0/5.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Организация фуршета и кейтеринга</p>
-            <p class="cards-items__item-descr">Возможность организовать питание на месте - от кофе-брейка до полноценного кейтеринга - делает мероприятие более комфортным и приятным</p>
+            <p class="cards-items__item-descr">Возможность организовать питание на месте&nbsp;- от кофе-брейка до полноценного кейтеринга - делает мероприятие более комфортным и приятным</p>
           </li>
         </ul>
       </div>
@@ -432,64 +459,66 @@
       <h2 class="section-title">Оборудование</h2>
       <div class="cards-inner">
         <ul class="cards-items">
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/1/0.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Проектор с пультом</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/1/1.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Выдвижной экран</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/1/2.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Аудио система</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/1/3.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Виниловый проигрыватель</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/1/4.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Фортепиано</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/1/5.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Климат контроль</p>
           </li>
         </ul>
-        <div class="cta-small cards-cta">
-          <p class="cta-small__text cards-cta__text">ПРЕДОСТАВЛЯЕМ ПРОВЕРЕННЫХ ПАРТНЕРОВ ДЛЯ ТЕХНИЧЕСКОГО ОСНАЩЕНИЯ ВАШИХ МЕРОПРИЯТИЙ</p>
-          <button class="cta-small__button cards-cta__button button button_secondary" type="button" data-fancybox data-src="#some">Обсудить мероприятие</button>
+        <div class="cta-small cta-small_cards">
+          <p class="cta-small__text">ПРЕДОСТАВЛЯЕМ ПРОВЕРЕННЫХ ПАРТНЕРОВ ДЛЯ ТЕХНИЧЕСКОГО ОСНАЩЕНИЯ ВАШИХ МЕРОПРИЯТИЙ</p>
+          <button class="cta-small__button button button_secondary" type="button" data-fancybox data-src="#some">Обсудить мероприятие</button>
         </div>
       </div>
     </div>
   </section>
   <section class="section cards cards_2">
+    <div class="cards-decoration cards-decoration_salt"></div>
+    <div class="cards-observer-trigger"></div>
     <div class="container">
       <h2 class="section-title">Что есть на площадке</h2>
       <div class="cards-inner">
         <ul class="cards-items">
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/2/0.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Стол для покера</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/2/1.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Канарейки</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/2/2.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Книги</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/2/3.webp" alt="undefined"></div>
-            <p class="cards-items__item-title">Антиквариат в интерьере</p>
+            <p class="cards-items__item-title">Антиквариат в&nbsp;интерьере</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/2/4.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Произведения искуства</p>
           </li>
-          <li class="cards-items__item">
+          <li class="cards-items__item" data-fancybox data-src="#modal_cta_coupon">
             <div class="cards-items__item-image image contain"><img class="lazyload" src="./assets/img/cards/2/5.webp" alt="undefined"></div>
             <p class="cards-items__item-title">Цветочная студия</p>
           </li>
@@ -500,13 +529,15 @@
   <section class="section cta cta_coupon">
     <div class="container --wider --desktop">
       <div class="section-inner cta-inner">
-        <div class="cta__content">
-          <h2 class="cta__title">заберите сертификат 2&nbsp;000 руб. на аренду </h2>
-          <p class="cta__text">Оставьте заявку и мы подарим <br class="--only-desktop"> вам 2&nbsp;000₽ на&nbsp;аренду зала на&nbsp;выбор</p>
-          <button class="cta__button button button_primary" data-fancybox data-src="#this" type="button">забрать сертификат</button>
-        </div>
-        <div class="cta__image"> 
-          <div class="cta__image-coupon image contain"><img class="lazyload" src="./assets/img/cta/coupon/coupon.webp" alt="Купон на две тысячи рублей"></div>
+        <div class="cta-inner-layer">
+          <div class="cta__content">
+            <h2 class="cta__title">заберите сертификат 2&nbsp;000 руб. на аренду </h2>
+            <p class="cta__text">Оставьте заявку и мы подарим <br class="--only-desktop"> вам 2&nbsp;000₽ на&nbsp;аренду зала на&nbsp;выбор</p>
+            <button class="cta__button button button_primary" data-fancybox data-src="#this" type="button">забрать сертификат</button>
+          </div>
+          <div class="cta__image"> 
+            <div class="cta__image-coupon image contain"><img class="lazyload" src="./assets/img/cta/coupon/coupon.webp" alt="Купон на две тысячи рублей"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -559,9 +590,9 @@
             </div>
           </div>
         </div>
-        <div class="cta-small cards-cta">
-          <p class="cta-small__text cards-cta__text">Обсудите питание на вашем мероприятии, ответим на все вопросы и посчитаем стол</p>
-          <button class="cta-small__button cards-cta__button button button_secondary" type="button" data-fancybox data-src="#some">Консультация</button>
+        <div class="cta-small cta-small_treats">
+          <p class="cta-small__text">Обсудите питание на вашем мероприятии, ответим на все вопросы и посчитаем стол</p>
+          <button class="cta-small__button button button_secondary" type="button" data-fancybox data-src="#some">Консультация</button>
         </div>
       </div>
     </div>
@@ -569,22 +600,24 @@
   <section class="section cta cta_photographer"> 
     <div class="container --wider">
       <div class="section-inner cta-inner">
-        <div class="cta__content">
-          <h2 class="cta__title">Любапетя Предоставит фотографа </h2>
-          <p class="cta__text">Чтобы узнать подробности нажмите на кнопку </p>
-          <button class="cta__button button button_primary" data-fancybox data-src="#this" type="button">Забронировать</button>
-        </div>
-        <div class="cta-images">
-          <div class="cta-images__image image contain"><img class="lazyload" src="./assets/img/cta/photographer/hero.webp" alt="#"></div>
-          <div class="cta-images__photos">
-            <div class="cta-images__photo">
-              <div class="cta-images__photo-inner image contain --no-lazy"><img src="./assets/img/cta/photographer/photo-0.png" alt="#"></div>
-            </div>
-            <div class="cta-images__photo">
-              <div class="cta-images__photo-inner image contain --no-lazy"><img src="./assets/img/cta/photographer/photo-1.png" alt="#"></div>
-            </div>
-            <div class="cta-images__photo">
-              <div class="cta-images__photo-inner image contain --no-lazy"><img src="./assets/img/cta/photographer/photo-2.png" alt="#"></div>
+        <div class="cta-inner-layer">
+          <div class="cta__content">
+            <h2 class="cta__title">Любапетя Предоставит фотографа </h2>
+            <p class="cta__text">Чтобы узнать подробности нажмите на кнопку </p>
+            <button class="cta__button button button_primary" data-fancybox data-src="#this" type="button">Забронировать</button>
+          </div>
+          <div class="cta-images">
+            <div class="cta-images__image image contain"><img class="lazyload" src="./assets/img/cta/photographer/hero.webp" alt="#"></div>
+            <div class="cta-images__photos">
+              <div class="cta-images__photo">
+                <div class="cta-images__photo-inner image contain --no-lazy"><img src="./assets/img/cta/photographer/photo-0.png" alt="#"></div>
+              </div>
+              <div class="cta-images__photo">
+                <div class="cta-images__photo-inner image contain --no-lazy"><img src="./assets/img/cta/photographer/photo-1.png" alt="#"></div>
+              </div>
+              <div class="cta-images__photo">
+                <div class="cta-images__photo-inner image contain --no-lazy"><img src="./assets/img/cta/photographer/photo-2.png" alt="#"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -625,18 +658,82 @@
   <section class="section cta cta_consult"> 
     <div class="container --wider">
       <div class="section-inner cta-inner">
-        <p class="cta__title">Я проконсультирую вас по всем вопросам и помогу подобрать площадку под мероприятие</p><img class="cta__image lazyload --only-desktop" src="./assets/img/cta/consult/hero.webp" alt="#"><img class="cta__image lazyload --only-mobile" src="./assets/img/cta/consult/hero-mobile.webp" alt="#">
-        <div class="cta__form"> 
-          <p class="cta__form-heading"><b>Перезвоним</b> в&nbsp;ближайшее время
-            <form class="form"> 
-              <input class="form__input input input_tel" type="tel" placeholder="+7 (999) 999-99-99">
-              <button class="form__submit button button_primary" type="submit">продать деньги</button>
-              <div class="form__checkbox-wrapper">
-                <input class="form__checkbox input input_checkbox input_consent" id="callback_consent" type="checkbox" name="user_consent">
-                <label class="form__label label" for="callback_consent">Я ознакомлен и согласен с условиями <a href="/privacy-policy">Политики конфиденциальности</a></label>
-              </div>
-            </form>
-          </p>
+        <div class="cta-inner-layer">
+          <p class="cta__title">Я проконсультирую вас по всем вопросам и помогу подобрать площадку под мероприятие</p><img class="cta__image lazyload --only-desktop" src="./assets/img/cta/consult/hero.webp" alt="#"><img class="cta__image lazyload --only-mobile" src="./assets/img/cta/consult/hero-mobile.webp" alt="#">
+          <div class="cta__form"> 
+            <p class="cta__form-heading"><b>Перезвоним</b> в&nbsp;ближайшее время
+              <form class="form"> 
+                <input class="form__input input input_tel" type="tel" placeholder="+7 (999) 999-99-99">
+                <button class="form__submit button button_primary" type="submit">продать деньги</button>
+                <div class="form__checkbox-wrapper">
+                  <input class="form__checkbox input input_checkbox input_consent" id="callback_consent" type="checkbox" name="user_consent">
+                  <label class="form__label label" for="callback_consent">Я ознакомлен и согласен с условиями <a href="/privacy-policy">Политики конфиденциальности</a></label>
+                </div>
+              </form>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section contacts">
+    <div class="container">
+      <div class="section-inner contacts-inner">
+        <div class="contacts__content">
+          <h2 class="contacts__title section-title">Контакты</h2>
+          <div class="contacts-item contacts-item_buttons">
+            <h3 class="contacts-item__title">Адреса лофтов:</h3>
+            <ul class="contacts-item__list contacts-item__list">
+              <li class="contacts-item__list-item">
+                <button class="contacts-item__list-item-button active" id="switch_to_forest" type="button"> 
+                  <svg class="contacts-item__list-item-button-icon">
+                    <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-pin"></use>
+                  </svg><span class="contacts-item__list-item-button-text">г. Челябинск ул.Лесопарковая дом&nbsp;5&nbsp;корпус&nbsp;2</span>
+                </button>
+              </li>
+              <li class="contacts-item__list-item">
+                <button class="contacts-item__list-item-button" id="switch_to_freedom" type="button"> 
+                  <svg class="contacts-item__list-item-button-icon">
+                    <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-pin"></use>
+                  </svg><span class="contacts-item__list-item-button-text">г. Челябинск ул. Свободы дом&nbsp;2&nbsp;корпус&nbsp;5</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="contacts-item_ contacts-item_numbers">
+            <h3 class="contacts-item__title">Телефон:</h3>
+            <ul class="contacts-item__list">
+              <li class="contacts-item__list-item"><span class="contacts-item__list-item-label">Администратор:</span><a class="contacts-item__list-item-link" href="tel:+79954693037">+7 (995) 469-30-37</a></li>
+              <li class="contacts-item__list-item"><span class="contacts-item__list-item-label">Менеджер по аренде:</span><a class="contacts-item__list-item-link" href="tel:+79026185600">+7 (902) 618-56-00</a></li>
+            </ul>
+          </div>
+          <div class="contacts-item contacts-item_socials">
+            <ul class="contacts-item__list contacts-item__list"> 
+              <li class="contacts-item__list-item"><a class="contacts-item__list-item-link" href="#" target="_blank"> 
+                  <svg class="contacts-item__list-item-link-icon">
+                    <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-social-tg"></use>
+                  </svg></a></li>
+              <li class="contacts-item__list-item"><a class="contacts-item__list-item-link" href="#" target="_blank"> 
+                  <svg class="contacts-item__list-item-link-icon">
+                    <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-social-ig"></use>
+                  </svg></a></li>
+              <li class="contacts-item__list-item"><a class="contacts-item__list-item-link" href="#" target="_blank"> 
+                  <svg class="contacts-item__list-item-link-icon">
+                    <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-social-vk"></use>
+                  </svg></a></li>
+            </ul>
+            <p class="contacts-item__notice">*Продукция компании “Meta” <br> запрещена на территории РФ</p>
+          </div>
+        </div>
+        <div class="contacts-maps">
+          <div class="contacts-maps__map" id="map_freedom"><div class="contacts-maps__map-wrapper" style="position:relative;overflow:hidden;">
+<a href="https://yandex.com/maps/org/lubapetya/157723765208/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">LubaPetya</a>
+<a href="https://yandex.com/maps/56/chelyabinsk/category/rental_of_venues_for_cultural_events/15215599314/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Rental of venues for cultural events in Chelyabinsk</a>
+<a href="https://yandex.com/maps/56/chelyabinsk/category/banquet_hall/184108315/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Banquet hall in Chelyabinsk</a>
+<iframe class="lazyload" data-src="https://yandex.com/map-widget/v1/?ll=61.409755%2C55.174411&mode=poi&poi%5Bpoint%5D=61.410328%2C55.174827&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D157723765208&z=17.46" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe>
+</div>
+          </div>
+          <div class="contacts-maps__map active" id="map_forest"><div class="contacts-maps__map-wrapper" style="position:relative;overflow:hidden;"><a href="https://yandex.com/maps/org/lyubapetya/182806065383/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">ЛюбаПетя</a><a href="https://yandex.com/maps/56/chelyabinsk/category/exhibition_center/184105892/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Exhibition center in Chelyabinsk</a><a href="https://yandex.com/maps/56/chelyabinsk/category/rental_of_venues_for_cultural_events/15215599314/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Rental of venues for cultural events in Chelyabinsk</a><iframe class="lazyload" data-src="https://yandex.com/map-widget/v1/?indoorLevel=1&ll=61.366810%2C55.156864&mode=poi&poi%5Bpoint%5D=61.366709%2C55.157132&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D182806065383&z=17.35" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe></div></div>
         </div>
       </div>
     </div>
@@ -1079,9 +1176,18 @@
 <button class="button button_primary" data-fancybox data-src="#modal_cta_menu">Ваше меню уже скачивается</button>
 <button class="button button_primary" data-fancybox data-src="#modal_cta_photographer">Любапетя Предоставит фотографа </button>
 <footer class="footer">
-  <section> 
-    <h2>That's all folks.</h2>
-  </section>
+  <div class="container --wider">
+    <div class="footer-inner"> 
+      <div class="footer-item footer-item_logo"><a class="footer-whatsapp" href=""> 
+          <svg class="footer-whatsapp-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-footer-wa"></use>
+          </svg></a>
+        <div class="logo footer-logo"><a class="logo__link footer-logo__link" href="/" title="ЛюбаПетя"><img src="./assets/img/logo-white.svg" alt="Логотип ЛюбаПетя"></a><span class="logo__text footer-logo__text">Cеть Loft’ов <br> в&nbsp;Челябинске</span></div>
+      </div>
+      <div class="footer-item"><a class="footer__privacy" href="/privacy-policy">Политика конфиденциальности</a></div>
+      <div class="footer-item"><a class="footer__dev" href="#"> <span class="footer__dev-text">designed by </span><span class="footer__dev-text-dev">SVA</span></a></div>
+    </div>
+  </div>
   <script src="./assets/js/lazysizes.bundle.js"></script>
   <script src="./assets/js/main.bundle.js"></script>
 </footer></body>

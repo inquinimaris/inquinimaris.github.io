@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
         lazy: false,
     }
     );
-    IMask(document.querySelector('.input_email'), {
-        mask: /^([a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]{0,64}(@)?([a-zA-Z0-9-]{0,255}(\.[a-zA-Z0-9-]{0,63})?)?)?$/
-    });
+    // IMask(document.querySelector('.input_email'), {
+    //     mask: /^([a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]{0,64}(@)?([a-zA-Z0-9-]{0,255}(\.[a-zA-Z0-9-]{0,63})?)?)?$/
+    // });
 
     function checkValidityName(name) {
         const regexName = /^[a-zA-Zа-яА-ЯёЁ\-'\s]{2,64}$/;
@@ -60,50 +60,52 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function checkInputValidity(name, tel, email, consent, promo) {
-        const validityName = validateInputField(name, checkValidityName);
+        // const validityName = validateInputField(name, checkValidityName);
         const validityTel = validateInputField(tel, checkValidityPhone);
-        const validityEmail = validateInputField(email, checkValidityEmail);
+        // const validityEmail = validateInputField(email, checkValidityEmail);
         const validityConsent = validateCheckbox(consent);
-        const validityPromo = validateCheckbox(promo);
-        return validityName && validityTel && validityEmail && validityConsent && validityPromo;
+        // const validityPromo = validateCheckbox(promo);
+        // return validityName && validityTel && validityEmail && validityConsent && validityPromo;
+        return validityTel && validityConsent;
     }
 
     document.querySelectorAll('form').forEach(function (form) {
-        form.setAttribute('data-first-submit', 'true');
+        // form.setAttribute('data-first-submit', 'true');
         const buttonSubmit = form.querySelector('button[type="submit"]');
-        const inputName = form.querySelector('.input_name');
+        // const inputName = form.querySelector('.input_name');
         const inputTel = form.querySelector('.input_tel');
-        const inputEmail = form.querySelector('.input_email');
+        // const inputEmail = form.querySelector('.input_email');
         const inputConsent = form.querySelector('.input_consent');
-        const inputPromo = form.querySelector('.input_promo');
+        // const inputPromo = form.querySelector('.input_promo');
 
         const validityState = {
-            name: checkValidityName(inputName ? inputName.value.trim() : ''),
+            // name: checkValidityName(inputName ? inputName.value.trim() : ''),
             tel: checkValidityPhone(inputTel ? inputTel.value.trim() : ''),
-            email: checkValidityEmail(inputEmail ? inputEmail.value.trim() : ''),
+            // email: checkValidityEmail(inputEmail ? inputEmail.value.trim() : ''),
             consent: checkValidityCheckbox(inputConsent),
-            promo: checkValidityCheckbox(inputPromo)
+            // promo: checkValidityCheckbox(inputPromo)
         };
 
         function updateSubmitButton() {
-            let isFirstSubmit = form.getAttribute('data-first-submit') === 'true';
+            // let isFirstSubmit = form.getAttribute('data-first-submit') === 'true';
             let allValid = Object.values(validityState).every(function (value) { return value; });
-            if (isFirstSubmit) {
-                buttonSubmit.disabled = false;
-            } else {
+            // if (isFirstSubmit) {
                 buttonSubmit.disabled = !allValid;
-            }
+            // } else {
+                // buttonSubmit.disabled = !allValid;
+            // }
         }
 
         updateSubmitButton();
 
         form.addEventListener('submit', function (event) {
             event.preventDefault();
-            form.setAttribute('data-first-submit', 'false');
-            buttonSubmit.disabled = true;
+            // alert('yep');
+            // form.setAttribute('data-first-submit', 'false');
+            // buttonSubmit.disabled = true;
             if (!checkInputValidity(inputName, inputTel, inputEmail, inputConsent, inputPromo)) {
                 console.debug('Fields validation failed');
-                buttonSubmit.disabled = false;
+                // buttonSubmit.disabled = false;
                 return;
             }
             const formData = new FormData(form);
@@ -130,14 +132,14 @@ document.addEventListener('DOMContentLoaded', function () {
             updateSubmitButton();
         }
 
-        if (inputName) {
-            inputName.addEventListener('input', function (event) {
-                onInputChange(event, 'name', checkValidityName);
-            });
-            inputName.addEventListener('change', function (event) {
-                onInputChange(event, 'name', checkValidityName);
-            });
-        }
+        // if (inputName) {
+        //     inputName.addEventListener('input', function (event) {
+        //         onInputChange(event, 'name', checkValidityName);
+        //     });
+        //     inputName.addEventListener('change', function (event) {
+        //         onInputChange(event, 'name', checkValidityName);
+        //     });
+        // }
         if (inputTel) {
             inputTel.addEventListener('input', function (event) {
                 onInputChange(event, 'tel', checkValidityPhone);
@@ -146,14 +148,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 onInputChange(event, 'tel', checkValidityPhone);
             });
         }
-        if (inputEmail) {
-            inputEmail.addEventListener('input', function (event) {
-                onInputChange(event, 'email', checkValidityEmail);
-            });
-            inputEmail.addEventListener('change', function (event) {
-                onInputChange(event, 'email', checkValidityEmail);
-            });
-        }
+        // if (inputEmail) {
+        //     inputEmail.addEventListener('input', function (event) {
+        //         onInputChange(event, 'email', checkValidityEmail);
+        //     });
+        //     inputEmail.addEventListener('change', function (event) {
+        //         onInputChange(event, 'email', checkValidityEmail);
+        //     });
+        // }
         if (inputConsent) {
             inputConsent.addEventListener('input', function (event) {
                 onInputChange(event, 'consent');
@@ -162,14 +164,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 onInputChange(event, 'consent');
             });
         }
-        if (inputPromo) {
-            inputPromo.addEventListener('input', function (event) {
-                onInputChange(event, 'promo');
-            });
-            inputPromo.addEventListener('change', function (event) {
-                onInputChange(event, 'promo');
-            });
-        }
+        // if (inputPromo) {
+        //     inputPromo.addEventListener('input', function (event) {
+        //         onInputChange(event, 'promo');
+        //     });
+        //     inputPromo.addEventListener('change', function (event) {
+        //         onInputChange(event, 'promo');
+        //     });
+        // }
     });
 });
 
