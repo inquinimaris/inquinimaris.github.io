@@ -13,7 +13,7 @@
   <meta name="msapplication-TileColor" content="#ffc40d">
   <meta name="theme-color" content="#ffffff">
 </head><body>
-<header class="header">
+<header class="header header_index">
   <div class="container --wider">
     <div class="header-inner">
       <div class="header-bar">
@@ -231,7 +231,7 @@
           <h2 class="places-heading__title section-title">Наши помещения</h2>
           <div class="places-heading__image"><img class="places-heading__image_couple" src="./assets/img/places-svg-couple.svg" alt="#"><img class="places-heading__image_landscape" src="./assets/img/places-svg-landscape.svg" alt="#"></div>
         </div>
-        <div class="places-place" id="freedom">
+        <div class="places-place places-place_freedom" id="freedom">
           <div class="places-place__heading">
             <div class="places-place__heading-text">
               <h3 class="places-place__heading-address">
@@ -239,11 +239,18 @@
                   <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-pin"></use>
                 </svg><span class="places-place__heading-address-text">адрес: ул. Свободы, 2к5</span>
               </h3>
-              <p class="places-place__heading-descr">Двухуровневый лофт с уникальной концепцией на первом этаже оранжерея и&nbsp;стеклянная комната. На втором этаже лаунж зона с проектором и столом для&nbsp;покера. Возможна аренда раздельная либо&nbsp;всего пространства</p>
+              <p class="places-place__heading-descr">Двухуровневый лофт с уникальной концепцией на первом этаже оранжерея и&nbsp;стеклянная комната. На&nbsp;втором этаже лаунж зона с&nbsp;проектором и столом для&nbsp;покера. Возможна аренда раздельная либо&nbsp;всего пространства</p>
             </div><a class="places-place__heading-link button button_primary --only-desktop" href="https://yandex.com/maps/-/CHsmBB0r" target="_blank">построить маршрут</a>
           </div>
           <div class="places-place__sliders places-place__sliders_two">
             <div class="places-place__slider-wrapper places-place__slider-wrapper_two">
+              <div class="places-place__slider-sign">
+                <div class="places-place__slider-sign-inner">
+                  <svg class="places-place__slider-sign-icon">
+                    <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-pets"></use>
+                  </svg><span>pets friendly</span>
+                </div>
+              </div>
               <div class="places-place__slider splide fade places-place__slider_0" data-fancybox data-src="#modal_first_floor">
                 <div class="splide__track">
                   <ul class="splide__list">
@@ -268,6 +275,13 @@
               </div>
             </div>
             <div class="places-place__slider-wrapper places-place__slider-wrapper_two">
+              <div class="places-place__slider-sign">
+                <div class="places-place__slider-sign-inner">
+                  <svg class="places-place__slider-sign-icon">
+                    <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-pets"></use>
+                  </svg><span>pets friendly</span>
+                </div>
+              </div>
               <div class="places-place__slider splide fade places-place__slider_1" data-fancybox data-src="#modal_second_floor">
                 <div class="splide__track">
                   <ul class="splide__list">
@@ -299,7 +313,7 @@
             </div>
           </div><a class="places-place__heading-link button button_primary --only-mobile" href="https://yandex.com/maps/-/CHsmBB0r" target="_blank">построить маршрут</a>
         </div>
-        <div class="places-place" id="forest">
+        <div class="places-place places-place_forest" id="forest">
           <div class="places-place__heading">
             <div class="places-place__heading-text">
               <h3 class="places-place__heading-address">
@@ -579,13 +593,13 @@
                 <h3 class="treats-items__item-head-title">Наш бар</h3>
               </div>
               <div class="treats-items__item-descr">
-                <p class="treats-items__item-descr-paragraph">У нас можно не только вкусно поесть, но и выбрать что-то покрепче.</p>
+                <p class="treats-items__item-descr-paragraph">У нас можно не только вкусно поесть, но&nbsp;и&nbsp;выбрать что-то покрепче.</p>
                 <p class="treats-items__item-descr-paragraph">В карте — игристое, белое и красное вино, классические коктейли и крепкий алкоголь.</p>
-                <p class="treats-items__item-descr-paragraph">Игривый бокал ламбруско, терпкий пино нуар, легендарные «Ночные ястребы» или насыщенный ром — выбирайте своё и создавайте настроение.</p>
+                <p class="treats-items__item-descr-paragraph">Игривый бокал ламбруско, терпкий пино <br style="display:inline"> нуар, легендарные «Ночные ястребы» или насыщенный ром — выбирайте своё и создавайте настроение.</p>
               </div>
               <div class="treats-items__item-perk">
                 <p class="treats-items__item-perk-text">вы можете принести свои напитки</p>
-                <p class="treats-items__item-perk-notice">пробковый <br class="--only-mobile"> сбор уточняйте у администратора</p>
+                <p class="treats-items__item-perk-notice">пробковый <br class="--only-mobile"> сбор уточняйте у&nbsp;администратора</p>
               </div><a class="treats-items__item-button button button_primary" href="#" download data-fancybox data-src="#">скачать барную карту</a>
             </div>
           </div>
@@ -708,21 +722,21 @@
             </ul>
           </div>
           <div class="contacts-item contacts-item_socials">
-            <ul class="contacts-item__list contacts-item__list"> 
-              <li class="contacts-item__list-item"><a class="contacts-item__list-item-link" href="#" target="_blank"> 
-                  <svg class="contacts-item__list-item-link-icon">
+            <ul class="contacts-list contacts-item__list contacts-item__list"> 
+              <li class="contacts-list__item contacts-item__list-item"><a class="contacts-list__item-link contacts-item__list-item-link" href="#" target="_blank"> 
+                  <svg class="contacts-list__item-link-icon contacts-item__list-item-link-icon">
                     <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-social-tg"></use>
                   </svg></a></li>
-              <li class="contacts-item__list-item"><a class="contacts-item__list-item-link" href="#" target="_blank"> 
-                  <svg class="contacts-item__list-item-link-icon">
+              <li class="contacts-list__item contacts-item__list-item"><a class="contacts-list__item-link contacts-item__list-item-link" href="#" target="_blank"> 
+                  <svg class="contacts-list__item-link-icon contacts-item__list-item-link-icon">
                     <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-social-ig"></use>
                   </svg></a></li>
-              <li class="contacts-item__list-item"><a class="contacts-item__list-item-link" href="#" target="_blank"> 
-                  <svg class="contacts-item__list-item-link-icon">
+              <li class="contacts-list__item contacts-item__list-item"><a class="contacts-list__item-link contacts-item__list-item-link" href="#" target="_blank"> 
+                  <svg class="contacts-list__item-link-icon contacts-item__list-item-link-icon">
                     <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-social-vk"></use>
                   </svg></a></li>
             </ul>
-            <p class="contacts-item__notice">*Продукция компании “Meta” <br> запрещена на территории РФ</p>
+            <p class="contacts__notice contacts-item__notice">*Продукция компании “Meta” <br> запрещена на территории РФ</p>
           </div>
         </div>
         <div class="contacts-maps">
@@ -743,6 +757,11 @@
   <div class="modal-inner modal-place-inner">
     <div class="modal-place__slider-wrapper"> 
       <div class="modal-place__slider modal-place__slider_0 splide">
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_prev" type="button">
+          <svg class="intro-slider__nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-prev"></use>
+          </svg>
+        </button>
         <div class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide modal-place__slide">
@@ -759,6 +778,11 @@
             </li>
           </ul>
         </div>
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_next" type="button">
+          <svg class="modal-place__slider-nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-next"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="modal-place__text">
@@ -802,6 +826,11 @@
   <div class="modal-inner modal-place-inner">
     <div class="modal-place__slider-wrapper"> 
       <div class="modal-place__slider modal-place__slider_1 splide">
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_prev" type="button">
+          <svg class="intro-slider__nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-prev"></use>
+          </svg>
+        </button>
         <div class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide modal-place__slide">
@@ -824,6 +853,11 @@
             </li>
           </ul>
         </div>
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_next" type="button">
+          <svg class="modal-place__slider-nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-next"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="modal-place__text">
@@ -867,6 +901,11 @@
   <div class="modal-inner modal-place-inner">
     <div class="modal-place__slider-wrapper"> 
       <div class="modal-place__slider modal-place__slider_2 splide">
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_prev" type="button">
+          <svg class="intro-slider__nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-prev"></use>
+          </svg>
+        </button>
         <div class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide modal-place__slide">
@@ -883,6 +922,11 @@
             </li>
           </ul>
         </div>
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_next" type="button">
+          <svg class="modal-place__slider-nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-next"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="modal-place__text">
@@ -921,6 +965,11 @@
   <div class="modal-inner modal-place-inner">
     <div class="modal-place__slider-wrapper"> 
       <div class="modal-place__slider modal-place__slider_3 splide">
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_prev" type="button">
+          <svg class="intro-slider__nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-prev"></use>
+          </svg>
+        </button>
         <div class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide modal-place__slide">
@@ -934,6 +983,11 @@
             </li>
           </ul>
         </div>
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_next" type="button">
+          <svg class="modal-place__slider-nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-next"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="modal-place__text">
@@ -972,6 +1026,11 @@
   <div class="modal-inner modal-place-inner">
     <div class="modal-place__slider-wrapper"> 
       <div class="modal-place__slider modal-place__slider_4 splide">
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_prev" type="button">
+          <svg class="intro-slider__nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-prev"></use>
+          </svg>
+        </button>
         <div class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide modal-place__slide">
@@ -988,6 +1047,11 @@
             </li>
           </ul>
         </div>
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_next" type="button">
+          <svg class="modal-place__slider-nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-next"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="modal-place__text">
@@ -1026,6 +1090,11 @@
   <div class="modal-inner modal-place-inner">
     <div class="modal-place__slider-wrapper"> 
       <div class="modal-place__slider modal-place__slider_5 splide">
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_prev" type="button">
+          <svg class="intro-slider__nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-prev"></use>
+          </svg>
+        </button>
         <div class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide modal-place__slide">
@@ -1045,6 +1114,11 @@
             </li>
           </ul>
         </div>
+        <button class="modal-place__slider-nav-arrow modal-place__slider-nav-arrow_next" type="button">
+          <svg class="modal-place__slider-nav-arrow-icon">
+            <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-arrow-noisy-next"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="modal-place__text">
@@ -1168,6 +1242,47 @@
         <label class="form__label label" for="modal_cta_4">Я ознакомлен и согласен с условиями <a href="/privacy-policy">Политики конфиденциальности</a></label>
       </div>
     </form>
+  </div>
+</div>
+<div class="modal modal_contacts" id="modal_contacts">
+  <div class="modal-inner">
+    <h2 class="modal__title">Связаться с&nbsp;нами</h2>
+    <ul class="modal-list">
+      <li class="modal-list__item"><a class="modal-list__item-link" href="https://t.me/lubapetya" target="_blank"><span class="modal-list__item-link-head">
+            <svg class="modal-list__item-link-icon">
+              <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-contacts-tg"></use>
+            </svg><span class="modal-list__item-link-title">Телеграм</span></span><span class="modal-list__item-link-text">@lubapetya</span></a></li>
+      <li class="modal-list__item"><a class="modal-list__item-link" href="https://wa.me/79954693037" target="_blank"><span class="modal-list__item-link-head">
+            <svg class="modal-list__item-link-icon">
+              <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-contacts-wa"></use>
+            </svg><span class="modal-list__item-link-title">WhatsApp</span></span><span class="modal-list__item-link-text">+7 (995) 469-30-37</span></a></li>
+      <li class="modal-list__item"><a class="modal-list__item-link" href="+79954693037" target="_blank"><span class="modal-list__item-link-head">
+            <svg class="modal-list__item-link-icon">
+              <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-contacts-phone"></use>
+            </svg><span class="modal-list__item-link-title">Телефон</span></span><span class="modal-list__item-link-text">+7 (995) 469-30-37</span></a></li>
+      <li class="modal-list__item"><a class="modal-list__item-link" href="lubapetya@mail.ru" target="_blank"><span class="modal-list__item-link-head">
+            <svg class="modal-list__item-link-icon">
+              <use xlink:href="./assets/img/icons/svg-sprite.svg#icon-contacts-mail"></use>
+            </svg><span class="modal-list__item-link-title">Почта</span></span><span class="modal-list__item-link-text">lubapetya@mail.ru</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="modal modal_tour" id="modal_tour">
+  <div class="modal-inner">
+    <div class="modal__title">Посмотрите видео-обзор площадки</div>
+    <div class="modal-videos">
+      <div class="modal-videos__video">
+        <div class="modal-videos__video-inner"></div>
+      </div>
+      <div class="modal-videos__video">
+        <div class="modal-videos__video-inner"></div>
+      </div>
+    </div>
+    <div class="modal-buttons">
+      <button class="modal-buttons__button button button_primary" id="video_forest" type="button">Loft на Лесопарковой</button>
+      <button class="modal-buttons__button button button_primary" id="video_freedom" type="button">Loft на Московской</button>
+    </div>
+    <p class="modal__notice">Выберите удобную локацию</p>
   </div>
 </div>
 <button class="button button_primary" data-fancybox data-src="#modal_cta_esteem">Получите расчет под ваше мероприятие</button>

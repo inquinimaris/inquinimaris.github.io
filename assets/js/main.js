@@ -140,10 +140,10 @@ modalSliders.forEach((element, index) => {
     const modalSlider = new Splide(`.modal-place__slider_${index}`, {
         type: 'fade',
         arrows: false,
-        // classes: {
-        //     pagination: 'splide__pagination places-place__slider-pagination',
-        //     page      : 'splide__pagination__page places-place__slider-pagination-page',
-        // },
+        classes: {
+            pagination: 'splide__pagination modal-place__slider-pagination',
+            page: 'splide__pagination__page modal-place__slider-pagination-page',
+        },
     }).mount();
 });
 
