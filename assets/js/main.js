@@ -145,8 +145,12 @@ modalSliders.forEach((element, index) => {
             page: 'splide__pagination__page modal-place__slider-pagination-page',
         },
     }).mount();
+    const sliderModalPrev = modalSlider.root.querySelector('.modal-place__slider-nav-arrow_prev');
+    const sliderModalNext = modalSlider.root.querySelector('.modal-place__slider-nav-arrow_next');
+    splideArrows(modalSlider, sliderModalPrev, sliderModalNext);
 });
 
+// modalSliders.mount();
 
 function animationPhotographs() {
     const section = document.querySelector('.cta_photographer .cta-inner');
